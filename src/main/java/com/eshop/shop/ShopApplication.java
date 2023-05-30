@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @SpringBootApplication
 @RestController
 public class ShopApplication {
@@ -20,6 +22,17 @@ public class ShopApplication {
 	public static String hellow(@RequestParam(value = "myName",
 			defaultValue = "World") String name){
 		return "Hellow"+" "+ name;
+	}
+
+	@GetMapping("/tasks")
+	static List<String> tasks(){
+
+		List<String> currentTasks = List.of(
+           "Do your homework",
+				"Set up the server",
+				"Buy a  new car"
+		);
+		return currentTasks;
 
 	}
 
