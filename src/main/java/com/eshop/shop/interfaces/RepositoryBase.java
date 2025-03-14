@@ -6,8 +6,7 @@ import java.util.Optional;
 import com.eshop.shop.models.EntityBase;
 
 public interface RepositoryBase<TEntity extends EntityBase>  {
-    
-        
+
     public boolean AddProduct(TEntity product); 
     public boolean UpdateProduct(TEntity product);
     public boolean DeleteProduct(TEntity product);

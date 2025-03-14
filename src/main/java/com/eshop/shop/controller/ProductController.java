@@ -8,27 +8,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.eshop.shop.ShopApplication;
-import com.eshop.shop.interfaces.ProductRepository;
 import com.eshop.shop.models.Product;
+import com.eshop.shop.repository.ProductRepository;
 
 
 @RestController
 @RequestMapping("api/v1/products")
 public class ProductController {
 
-    private final ShopApplication shopApplication;
 
     @Autowired
     private ProductRepository _reporitory;
 
-    ProductController(ShopApplication shopApplication) {
-        this.shopApplication = shopApplication;
-    }
-
     @GetMapping("/")
-    public String getMethodName(@RequestParam String param) {
-        return new String();
+    public List<Product> GetProducts(@RequestParam(value = "id", defaultValue = "") String identifier ) {
+
+        List<Product> products = _reporitory.GetAll();
+        return products;
+  
     }
     
     public List<Product> GetAll(){

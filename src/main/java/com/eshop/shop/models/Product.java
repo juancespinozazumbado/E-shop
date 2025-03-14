@@ -8,9 +8,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Product {
+public class Product extends EntityBase {
 
-    private Long Id;
     private String Name;
     private String Description;
     private long CategoryId;
