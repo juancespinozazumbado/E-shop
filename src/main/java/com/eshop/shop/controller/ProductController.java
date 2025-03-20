@@ -3,6 +3,8 @@ package com.eshop.shop.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,10 +32,13 @@ public class ProductController {
     private ProductRepository _repository;
     @Autowired
     private CategoryRepository _catRepository;
+    private final Logger logger  = LoggerFactory.getLogger(ProductController.class);
 
     @GetMapping("/")
     public List<Product> GetProducts(@RequestParam(value = "name", defaultValue = "") String name ) {
 
+        logger.info("Receiving message.....");
+        logger.error("Somethings happen");
         if(!name.isEmpty()){
 
           return _repository.Get( e -> e.getName().equals(name));
@@ -65,7 +70,6 @@ public class ProductController {
         }
        
     }
-
 
     @PostMapping("/")
 
