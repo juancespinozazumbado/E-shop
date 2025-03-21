@@ -2,7 +2,6 @@ package com.eshop.shop.controller;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.eshop.shop.interfaces.CategoryRepository;
 import com.eshop.shop.interfaces.ProductRepository;
 import com.eshop.shop.models.Product;
-
-
 
 @RestController
 @RequestMapping("/api/v1/products")
@@ -124,6 +120,4 @@ public class ProductController {
     record addCategoryRequest(Long categoryId){};
 
     record AddProductRecord(String Name, String Description, String CategoryName){}
-
-
 }
