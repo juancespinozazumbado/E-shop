@@ -1,11 +1,14 @@
 package com.eshop.shop.controller;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,8 +22,7 @@ import com.eshop.shop.interfaces.CategoryRepository;
 import com.eshop.shop.interfaces.ProductRepository;
 import com.eshop.shop.models.Product;
 
-@RestController
-@RequestMapping("/api/v1/products")
+@Controller
 public class ProductController {
 
    
@@ -30,17 +32,26 @@ public class ProductController {
     private CategoryRepository _catRepository;
     private final Logger logger  = LoggerFactory.getLogger(ProductController.class);
 
+
     @GetMapping("/")
-    public List<Product> GetProducts(@RequestParam(value = "name", defaultValue = "") String name ) {
+    public String HomePage(){
+        return "index";
+    }
+
+    @GetMapping("/products")
+    public String GetProducts(@RequestParam(value = "name", defaultValue = "") String name, Model model ) {
 
         logger.info("Receiving message.....");
         logger.error("Somethings happen");
+        List<Product> productsList;
         if(!name.isEmpty()){
-
-          return _repository.Get( e -> e.getName().equals(name));
+            productsList =  _repository.Get(e -> e.getName().equals(name));
         }
-        else   
-          return _repository.Get();
+        else {
+            productsList = _repository.Get();
+        }
+        model.addAttribute("productList", productsList);
+        return "products/index";
   
     }
 

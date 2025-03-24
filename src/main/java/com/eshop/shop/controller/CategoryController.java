@@ -75,7 +75,6 @@ public class CategoryController {
            
     }
 
-
     record addCategoryRequest(Long categoryId){};
 
 
