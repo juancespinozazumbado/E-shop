@@ -16,9 +16,11 @@ public abstract class EntityBase {
 
     public EntityBase(){
         
-        this.Id = Long.parseLong("10000"+ Math.random() * ((100 - 1) + 1));
+        this.Id = Long.parseLong("10000"+ (int)(Math.random() * ((100 - 1) + 1)));
         this.CreatedDate = new Date();
 
     }
 
+    public Long getId(){ return Id;}
 }
+

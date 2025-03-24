@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Your first Spring application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h2> Products</h2>
+<a th:href = "@{/products/add}" class="btn btn-primary btn-sm mb-3"> Add product</a>
+<form action="/hellow" method="GET" id="nameForm">
+    <div>
+        <label for="nameField">How should the app call you?</label>
+        <input name="myName" id="nameField">
+        <button>Greet me!</button>
+    </div>
+</form>
+
+<form action="/tasks" method="GET" id="task">
+    <div>
+
+        <button>get tasks</button>
+    </div>
+</form>
+</body>
+</html>
+

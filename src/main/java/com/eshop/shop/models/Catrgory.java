@@ -10,8 +10,8 @@ import lombok.Setter;
 @Getter
 public class Catrgory extends  EntityBase {
 
-    private String Name; 
-    private String Description; 
-    private List<Product> Produsts; 
+    public String Name; 
+    public String Description; 
+    public List<Product> Produsts; 
     
 }

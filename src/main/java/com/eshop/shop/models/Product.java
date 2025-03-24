@@ -2,7 +2,6 @@ package com.eshop.shop.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor
@@ -11,7 +10,14 @@ import lombok.Setter;
 public class Product extends EntityBase {
 
     private String Name;
-    private String Description;
-    private long CategoryId;
-    private boolean isInStok = false;
+    public String Description;
+    public long CategoryId;
+    public boolean isInStok = false;
+
+    public Product(String name, String description){
+
+        name = name; 
+        Description = description;
+        // CategoryId = 0L;
+    }
 }
